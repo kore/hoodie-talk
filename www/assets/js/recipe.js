@@ -68,30 +68,42 @@
         var buildList = function() {
             hoodie.store.findAll("recipe").done(function (recipes) {
                 for (var i = 0; i < recipes.length; ++i) {
-                    $(".list ul.recipes").append(renderRecipe(recipes[i]));
+                    appendRecipe(".list ul.recipes", recipes[i]);
                 }
             });
 
             hoodie.store.on('add:recipe', function(recipe) {
-                console.log(recipe);
-                $(".list ul.recipes").append(renderRecipe(recipe));
+                appendRecipe(".list ul.recipes", recipe);
             });
         };
 
-        var renderRecipe = function(recipe) {
+        var appendRecipe = function(target, recipe) {
             var recipeHtml = "<li>";
 
             recipeHtml += recipe.title;
 
-            if (recipe.public) {
-                recipeHtml += ' <span class="label label-success glyphicon glyphicon-check"></span>';
+            if (recipe["$public"]) {
+                recipeHtml += ' <span class="glyphicon glyphicon-check"></span>';
             } else {
-                recipeHtml += ' <span class="glyphicon glyphicon-share"></span>';
+                recipeHtml += ' <a class="share" href="" data-recipe="' + recipe.id + '"><span class="glyphicon glyphicon-share"></span></a>';
             }
 
             recipeHtml += "</li>";
-            return recipeHtml;
+
+            $(target).append(recipeHtml);
+            
+            $(target).find("a.share").unbind("click");
+            $(target).find("a.share").bind("click", shareRecipe);
         };
+
+        var shareRecipe = function(e, data) {
+            e.preventDefault();
+
+            var recipeId = $(e.currentTarget).data("recipe");
+            hoodie.store.find("recipe", recipeId).publish();
+
+            return false;
+        }
 
         return this.each(function() {
             $(this).find(".create button.ingredient").unbind("click");
