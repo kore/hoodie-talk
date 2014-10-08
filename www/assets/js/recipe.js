@@ -66,17 +66,15 @@
         };
 
         var buildList = function() {
-            $(".my-recipes").empty();
-
             hoodie.store.findAll("recipe").done(function (recipes) {
+                $(".my-recipes").empty();
                 for (var i = 0; i < recipes.length; ++i) {
                     appendRecipe(".my-recipes", recipes[i]);
                 }
             });
 
-            $(".global-recipes").empty();
-
             hoodie.global.findAll("recipe").done(function (recipes) {
+                $(".global-recipes").empty();
                 for (var i = 0; i < recipes.length; ++i) {
                     appendRecipe(".global-recipes", recipes[i]);
                 }
@@ -85,7 +83,6 @@
 
         var appendRecipe = function(target, recipe) {
             var recipeHtml = "<li>";
-
             recipeHtml += recipe.title;
 
             if (recipe["$public"]) {
@@ -95,7 +92,6 @@
             }
 
             recipeHtml += "</li>";
-
             $(target).append(recipeHtml);
             
             $(target).find("a.share").unbind("click");
@@ -109,7 +105,6 @@
             hoodie.store.find("recipe", recipeId).publish();
 
             buildList();
-
             return false;
         }
 
@@ -122,6 +117,7 @@
 
             buildList();
             hoodie.store.on('add:recipe', buildList);
+            hoodie.global.on('add:recipe', buildList);
         });
     };
 }(jQuery));
