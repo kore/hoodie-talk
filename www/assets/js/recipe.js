@@ -21,7 +21,6 @@
             var formValues = $(form).serializeArray(),
                 ingredient = {},
                 recipe = {
-                    "type": "recipe",
                     "title": "",
                     "ingredients": [],
                     "instructions": ""
@@ -60,9 +59,16 @@
         var addRecipe = function(e, data) {
             e.preventDefault();
 
-            hoodie.store.add(getRecipeFromForm(e.target);
+            var recipe = getRecipeFromForm(e.target);
+            hoodie.store.add("recipe", recipe);
 
             return false;
+        };
+
+        var buildList = function() {
+            hoodie.store.findAll("recipe").done(function (recipes) {
+                console.log(recipes);
+            });
         };
 
         return this.each(function() {
@@ -71,6 +77,8 @@
 
             $(this).find(".create form").unbind("submit");
             $(this).find(".create form").bind("submit", addRecipe);
+
+            buildList();
         });
     };
 }(jQuery));
