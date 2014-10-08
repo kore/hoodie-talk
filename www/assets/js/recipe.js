@@ -86,16 +86,17 @@
             recipeHtml += recipe.title;
 
             if (recipe["$public"]) {
-                recipeHtml += ' <span class="glyphicon glyphicon-check"></span>';
+                recipeHtml += ' <a class="unshare" href="" data-recipe="' + recipe.id + '"><span class="text-success glyphicon glyphicon-check"></span></a>';
             } else {
-                recipeHtml += ' <a class="share" href="" data-recipe="' + recipe.id + '"><span class="glyphicon glyphicon-share"></span></a>';
+                recipeHtml += ' <a class="share" href="" data-recipe="' + recipe.id + '"><span class="text-danger glyphicon glyphicon-share"></span></a>';
             }
 
             recipeHtml += "</li>";
             $(target).append(recipeHtml);
             
-            $(target).find("a.share").unbind("click");
+            $(target).find("a").unbind("click");
             $(target).find("a.share").bind("click", shareRecipe);
+            $(target).find("a.unshare").bind("click", unshareRecipe);
         };
 
         var shareRecipe = function(e, data) {
@@ -103,6 +104,16 @@
 
             var recipeId = $(e.currentTarget).data("recipe");
             hoodie.store.find("recipe", recipeId).publish();
+
+            buildList();
+            return false;
+        }
+
+        var unshareRecipe = function(e, data) {
+            e.preventDefault();
+
+            var recipeId = $(e.currentTarget).data("recipe");
+            hoodie.store.find("recipe", recipeId).unpublish();
 
             buildList();
             return false;
@@ -118,6 +129,7 @@
             buildList();
             hoodie.store.on('add:recipe', buildList);
             hoodie.global.on('add:recipe', buildList);
+            hoodie.global.on('change:recipe', buildList);
         });
     };
 }(jQuery));

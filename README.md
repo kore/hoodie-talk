@@ -19,6 +19,6 @@ Start app locally:
 * [ ] Display shared recipes
 * [ ] Edit own recipes
 * [ ] Show author in shared recipes
-* [ ] Implement unpublishing of recipes
+* [x] Implement unpublishing of recipes
 * [ ] Implement more beautiful styling of app
 
