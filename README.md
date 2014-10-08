@@ -13,3 +13,12 @@ Start app locally:
 
     $ hoodie start
 
+## TODO
+
+* [ ] Display own recipes
+* [ ] Display shared recipes
+* [ ] Edit own recipes
+* [ ] Show author in shared recipes
+* [ ] Implement unpublishing of recipes
+* [ ] Implement more beautiful styling of app
+
