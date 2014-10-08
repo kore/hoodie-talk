@@ -3,6 +3,8 @@
 var hoodie  = new Hoodie();
 
 $("#toolbar").toolbar({
-    "list": function() {alert("List!");},
-    "create": function() {alert("Create!");},
+    "list": function() {},
+    "create": function() {},
 });
+
+$(".content").recipe(hoodie);
