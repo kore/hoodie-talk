@@ -16,7 +16,6 @@
 
     Hoodstrap.prototype = {
 
-      //
       hoodifyAccountBar: function() {
         this.subscribeToHoodieEvents();
         this.hoodie.account.authenticate().then(this.handleUserAuthenticated.bind(this), this.handleUserUnauthenticated.bind(this));
@@ -28,13 +27,11 @@
         this.hoodie.on('account:error:unauthenticated remote:error:unauthenticated', this.handleUserAuthenticationError.bind(this));
       },
 
-      //
       handleUserAuthenticated: function(username) {
         $('html').attr('data-hoodie-account-status', 'signedin');
         $('.hoodie-accountbar').find('.hoodie-username').text(username);
       },
 
-      //
       handleUserUnauthenticated: function() {
         if (this.hoodie.account.username) {
           return this.handleUserAuthenticationError();

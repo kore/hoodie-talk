@@ -24,12 +24,6 @@ html[data-hoodie-account-status=signedout] .hoodie-account-signedout {
   display: block;
 }
 
-.hoodie-accountbar {
-  position: absolute;
-  top: 20px;
-  right: 10px;
-}
-
 .content {
     padding: .5em;
 }

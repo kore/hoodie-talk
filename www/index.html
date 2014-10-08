@@ -12,64 +12,58 @@
   </head>
   <body>
     <div class="container">
-      <div class="hoodie-accountbar">
-
-      </div><!--/hoodieAccountBar -->
-
-      <nav class="navbar navbar-default" role="navigation">
+      <nav class="hoodie-accountbar navbar navbar-default" role="navigation">
         <div class="container-fluid">
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul id="toolbar" class="nav navbar-nav">
-              <li><a href="list">Recipe list</a></li>
-              <li><a href="create">Create recipe</a></li>
-            </ul>
+          <ul id="toolbar" class="nav navbar-nav">
+            <li><a href="list">Recipe list</a></li>
+            <li><a href="create">Create recipe</a></li>
+          </ul>
 
-            <div class="nav navbar-nav navbar-right">
-              <div class="hoodie-account-signedout">
-                <span class="btn-group">
-                  <button class="btn btn-small" data-hoodie-action="signup">Sign Up</button>
-                  <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu pull-right">
-                    <li><a href="#" data-hoodie-action="signin">Sign In</a></li>
-                    <li><a href="#" data-hoodie-action="resetpassword">Reset Password</a></li>
-                    <li><a href="#" data-hoodie-action="destroy">Clear local data</a></li>
-                  </ul>
-                </span>
-              </div><!-- /.hoodie-account-signedout -->
+          <ul class="nav navbar-form navbar-right">
+            <li class="hoodie-account-signedout">
+              <span class="btn-group">
+                <button class="btn btn-small" data-hoodie-action="signup">Sign Up</button>
+                <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="#" data-hoodie-action="signin">Sign In</a></li>
+                  <li><a href="#" data-hoodie-action="resetpassword">Reset Password</a></li>
+                  <li><a href="#" data-hoodie-action="destroy">Clear local data</a></li>
+                </ul>
+              </span>
+            </li><!-- /.hoodie-account-signedout -->
 
-              <div class="hoodie-account-signedin">
-                Hello,
-                <span class="hoodie-username"><!-- usern name will be filled in here --></span>
-                <span class="btn-group">
-                  <button class="btn btn-small" data-hoodie-action="signout">Sign Out</button>
-                  <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu pull-right">
-                    <li><a href="#" data-hoodie-action="changepassword">Change Password</a></li>
-                    <li><a href="#" data-hoodie-action="changeusername">Change Username</a></li>
-                    <li><a href="#" data-hoodie-action="destroy">Destroy Account</a></li>
-                  </ul>
-                </span>
-              </div><!-- /.hoodie-account-signedin -->
+            <li class="hoodie-account-signedin">
+              Hello,
+              <span class="hoodie-username"><!-- usern name will be filled in here --></span>
+              <span class="btn-group">
+                <button class="btn btn-small" data-hoodie-action="signout">Sign Out</button>
+                <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="#" data-hoodie-action="changepassword">Change Password</a></li>
+                  <li><a href="#" data-hoodie-action="changeusername">Change Username</a></li>
+                  <li><a href="#" data-hoodie-action="destroy">Destroy Account</a></li>
+                </ul>
+              </span>
+            </li><!-- /.hoodie-account-signedin -->
 
-              <div class="hoodie-account-error">
-                Hello,
-                <span class="hoodie-username"><!-- username will be filled in here --></span>.
-                <span class="btn-group">
-                  <button class="btn btn-small btn-danger" data-hoodie-action="signin">Authentication error: Sign in again</button>
-                  <button class="btn btn-small dropdown-toggle btn-danger" data-toggle="dropdown">
-                    <span class="caret"></span>
-                  </button>
-                  <ul class="dropdown-menu pull-right">
-                    <li><a href="#" data-hoodie-action="signout">Sign out</a></li>
-                  </ul>
-                </span>
-              </div><!-- /.hoodie-account-error -->
-            </div>
-          </div><!-- /.navbar-collapse -->
+            <li class="hoodie-account-error">
+              Hello,
+              <span class="hoodie-username"><!-- username will be filled in here --></span>.
+              <span class="btn-group">
+                <button class="btn btn-small btn-danger" data-hoodie-action="signin">Authentication error: Sign in again</button>
+                <button class="btn btn-small dropdown-toggle btn-danger" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                  <li><a href="#" data-hoodie-action="signout">Sign out</a></li>
+                </ul>
+              </span>
+            </li><!-- /.hoodie-account-error -->
+          </ul>
         </div><!-- /.container-fluid -->
       </nav>
 
