@@ -75,9 +75,18 @@
         </div>
         
         <div class="list" style="display: none;">
-            <h2>Recipe list</h2>
-            <ul class="recipes">
-            </ul>
+          <div class="row ingredients">
+            <div class="col-md-6">
+              <h2>My recipes</h2>
+              <ul class="my-recipes">
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h2>Shared recipes</h2>
+              <ul class="global-recipes">
+              </ul>
+            </div>
+          </div>
         </div>
         
         <div class="create" style="display: none;">
@@ -89,14 +98,14 @@
                 <input type="text" class="form-control" name="title" placeholder="Recipe title">
               </div>
               <div class="form-group">
-                <label>Zutaten</label>
+                <label>Ingredients</label>
                 <div class="row ingredients">
                   <div class="col-md-2">
                     <input type="text" class="form-control" name="amount" placeholder="0">
                   </div>
                   <div class="col-md-2">
                     <select type="select" size="1" class="form-control" name="unit">
-                      <option value="g">Gramm</option>
+                      <option value="g">Gram</option>
                       <option value="ml">Milliliter</option>
                       <option value="pcs">Pieces</option>
                       <option value="tsp">Tee spoons</option>
