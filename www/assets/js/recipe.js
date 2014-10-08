@@ -67,8 +67,30 @@
 
         var buildList = function() {
             hoodie.store.findAll("recipe").done(function (recipes) {
-                console.log(recipes);
+                for (var i = 0; i < recipes.length; ++i) {
+                    $(".list ul.recipes").append(renderRecipe(recipes[i]));
+                }
             });
+
+            hoodie.store.on('add:recipe', function(recipe) {
+                console.log(recipe);
+                $(".list ul.recipes").append(renderRecipe(recipe));
+            });
+        };
+
+        var renderRecipe = function(recipe) {
+            var recipeHtml = "<li>";
+
+            recipeHtml += recipe.title;
+
+            if (recipe.public) {
+                recipeHtml += ' <span class="label label-success glyphicon glyphicon-check"></span>';
+            } else {
+                recipeHtml += ' <span class="glyphicon glyphicon-share"></span>';
+            }
+
+            recipeHtml += "</li>";
+            return recipeHtml;
         };
 
         return this.each(function() {
