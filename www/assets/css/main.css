@@ -1,7 +1,3 @@
-/* ==========================================================================
-   Hoodie Sign In / Sign Up / Sign out stylings
-   ========================================================================== */
-
 body {
 }
 
@@ -34,7 +30,6 @@ html[data-hoodie-account-status=signedout] .hoodie-account-signedout {
 }
 
 .content {
-    margin-top: 70px;
     padding: .5em;
 }
 
