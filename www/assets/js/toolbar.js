@@ -20,8 +20,6 @@
             $(".content > div").hide();
             $(".content > ." + linkTarget).show();
 
-            console.log(itemCallbacks);
-
             if (itemCallbacks[linkTarget]) {
                 itemCallbacks[linkTarget](e, data);
             }
