@@ -65,20 +65,25 @@
             return false;
         };
 
-        var buildList = function() {
+        var updateRecipeList = function() {
             hoodie.store.findAll("recipe").done(function (recipes) {
-                $(".my-recipes").empty();
-                for (var i = 0; i < recipes.length; ++i) {
-                    appendRecipe(".my-recipes", recipes[i]);
-                }
+                renderList(".my-recipes", recipes);
             });
 
             hoodie.global.findAll("recipe").done(function (recipes) {
-                $(".global-recipes").empty();
-                for (var i = 0; i < recipes.length; ++i) {
-                    appendRecipe(".global-recipes", recipes[i]);
-                }
+                renderList(".global-recipes", recipes);
             });
+        };
+
+        var renderList = function(target, recipes) {
+            $(target).empty();
+            recipes.sort(function(a, b) {
+                return ((a.title == b.title) ? 0 : ((a.title > b.title) ? 1 : -1));
+            });
+
+            for (var i = 0; i < recipes.length; ++i) {
+                appendRecipe(target, recipes[i]);
+            }
         };
 
         var appendRecipe = function(target, recipe) {
@@ -105,7 +110,7 @@
             var recipeId = $(e.currentTarget).data("recipe");
             hoodie.store.find("recipe", recipeId).publish();
 
-            buildList();
+            updateRecipeList();
             return false;
         }
 
@@ -115,7 +120,7 @@
             var recipeId = $(e.currentTarget).data("recipe");
             hoodie.store.find("recipe", recipeId).unpublish();
 
-            buildList();
+            updateRecipeList();
             return false;
         }
 
@@ -126,10 +131,10 @@
             $(this).find(".create form").unbind("submit");
             $(this).find(".create form").bind("submit", addRecipe);
 
-            buildList();
-            hoodie.store.on('add:recipe', buildList);
-            hoodie.global.on('add:recipe', buildList);
-            hoodie.global.on('change:recipe', buildList);
+            updateRecipeList();
+            hoodie.store.on('add:recipe', updateRecipeList);
+            hoodie.global.on('add:recipe', updateRecipeList);
+            hoodie.global.on('change:recipe', updateRecipeList);
         });
     };
 }(jQuery));
