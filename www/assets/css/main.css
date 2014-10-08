@@ -32,3 +32,18 @@ html[data-hoodie-account-status=signedout] .hoodie-account-signedout {
   top: 20px;
   right: 10px;
 }
+
+.content {
+    margin-top: 70px;
+    padding: .5em;
+}
+
+footer {
+    background-color: #eeeeec;
+    margin: 1em 0em 0em 0em;
+    padding: .5em;
+}
+
+footer p {
+    margin: 0;
+}
