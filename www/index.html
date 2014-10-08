@@ -19,9 +19,9 @@
       <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="list"><a href="">Recipe list</a></li>
-              <li class="create"><a href="">Create recipe</a></li>
+            <ul id="toolbar" class="nav navbar-nav">
+              <li><a href="list">Recipe list</a></li>
+              <li><a href="create">Create recipe</a></li>
             </ul>
 
             <div class="nav navbar-nav navbar-right">
@@ -75,7 +75,18 @@
 
       <div class="content">
         <h1>Hood Recipes</h1>
-        <p>Welcome</p>
+        
+        <div class="start">
+            <p>Welcome</p>
+        </div>
+        
+        <div class="list" style="display: none;">
+            <h2>Recipe list</h2>
+        </div>
+        
+        <div class="create" style="display: none;">
+            <h2>Add recipe</h2>
+        </div>
       </div>
 
       <footer class="copy">
@@ -91,6 +102,9 @@
 
     <script src="assets/vendor/hoodie.accountbar.bootstrap.js"></script>
     <script src="assets/vendor/bootstrap.modalform.js"></script>
+
+    <script src="assets/js/toolbar.js"></script>
+    <script src="assets/js/main.js"></script>
     <script src="assets/js/main.js"></script>
   </body>
 </html>
