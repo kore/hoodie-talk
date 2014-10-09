@@ -87,11 +87,11 @@
      * @param string target
      */
     view.findAll = function(callback) {
-        hoodie.store.findAll().done(function (myRecipes) {
-            hoodie.global.findAll().done(function (globalRecipes) {
+        hoodie.store.findAll().done(function (myDocs) {
+            hoodie.global.findAll().done(function (globalDocs) {
                 callback(
                     _.uniq(
-                        _.union(myRecipes, globalRecipes),
+                        _.union(myDocs, globalDocs),
                         false,
                         function (doc) {
                             return doc.id;
