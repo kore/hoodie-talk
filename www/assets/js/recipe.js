@@ -39,12 +39,29 @@
                 function () {
                     $(target).find("a").unbind("click");
 
-                    // $(target).find("a.mine").bind("click", showRecipe);
+                    $(target).find("a.mine").bind("click", showRecipe);
                     $(target).find("a.share").bind("click", shareRecipe);
                     $(target).find("a.unshare").bind("click", unshareRecipe);
                 }
             );
         };
+
+        var showRecipe = function(e, data) {
+            e.preventDefault();
+
+            var recipeId = $(e.currentTarget).data("recipe");
+            hoodie.store.find("recipe", recipeId).done(function(recipe) {
+                $('#toolbar').trigger("displayPage", {page: "recipe"});
+                Recipe.template.showTemplate(
+                    ".recipe",
+                    "templates/recipe.tpl",
+                    recipe
+                );
+            });
+
+            updateRecipeList();
+            return false;
+        }
 
         var shareRecipe = function(e, data) {
             e.preventDefault();

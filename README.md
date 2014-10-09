@@ -15,7 +15,7 @@ Start app locally:
 
 ## TODO
 
-* [ ] Display own recipes
+* [x] Display own recipes
 * [ ] Display shared recipes
 * [ ] Edit own recipes
 * [ ] Delete recipes
