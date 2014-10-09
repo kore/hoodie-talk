@@ -81,27 +81,17 @@
                 return ((a.title == b.title) ? 0 : ((a.title > b.title) ? 1 : -1));
             });
 
-            for (var i = 0; i < recipes.length; ++i) {
-                appendRecipe(target, recipes[i]);
-            }
-        };
+            Recipe.template.showTemplate(
+                target,
+                "templates/my-recipes.tpl",
+                {"recipes": recipes},
+                function () {
+                    $(target).find("a").unbind("click");
 
-        var appendRecipe = function(target, recipe) {
-            var recipeHtml = "<li>";
-            recipeHtml += recipe.title;
-
-            if (recipe["$public"]) {
-                recipeHtml += ' <a class="unshare" href="" data-recipe="' + recipe.id + '"><span class="text-success glyphicon glyphicon-check"></span></a>';
-            } else {
-                recipeHtml += ' <a class="share" href="" data-recipe="' + recipe.id + '"><span class="text-danger glyphicon glyphicon-share"></span></a>';
-            }
-
-            recipeHtml += "</li>";
-            $(target).append(recipeHtml);
-            
-            $(target).find("a").unbind("click");
-            $(target).find("a.share").bind("click", shareRecipe);
-            $(target).find("a.unshare").bind("click", unshareRecipe);
+                    $(target).find("a.share").bind("click", shareRecipe);
+                    $(target).find("a.unshare").bind("click", unshareRecipe);
+                }
+            );
         };
 
         var shareRecipe = function(e, data) {
