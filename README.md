@@ -18,7 +18,8 @@ Start app locally:
 * [ ] Display own recipes
 * [ ] Display shared recipes
 * [ ] Edit own recipes
-* [ ] Show author in shared recipes
+* [ ] Delete recipes
+* [x] Show author in shared recipes
 * [x] Implement unpublishing of recipes
 * [ ] Implement more beautiful styling of app
 * [ ] Implement cookbook generation
