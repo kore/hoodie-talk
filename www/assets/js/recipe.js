@@ -41,6 +41,10 @@
 
                     $(target).find("a.mine").bind("click", showRecipe);
                     $(target).find("a.shared").bind("click", showSharedRecipe);
+
+                    $(target).find("a.delete").bind("click", deleteRecipe);
+                    $(target).find("a.edit").bind("click", editRecipe);
+
                     $(target).find("a.share").bind("click", shareRecipe);
                     $(target).find("a.unshare").bind("click", unshareRecipe);
                 }
@@ -76,6 +80,28 @@
                     recipe
                 );
             });
+
+            updateRecipeList();
+            return false;
+        }
+
+        var deleteRecipe = function(e, data) {
+            e.preventDefault();
+
+            var recipeId = $(e.currentTarget).data("recipe");
+            if (confirm("Do you really want to remove the recipe with ID " + recipeId + "?", "Delete recipe")) {
+                hoodie.store.remove("recipe", recipeId);
+            }
+
+            updateRecipeList();
+            return false;
+        }
+
+        var editRecipe = function(e, data) {
+            e.preventDefault();
+
+            var recipeId = $(e.currentTarget).data("recipe");
+            // @TODO: Do something
 
             updateRecipeList();
             return false;
