@@ -3,6 +3,9 @@
 This is a demo and example application for workshops, trainings and talks. This
 is *experimental code* and not intended to be used for anything else.
 
+This is a demo offline-first recipe manager with sharing functionality using
+Hoodie.
+
 ## Hoodie Installation
 
 Please refer to the [install guides for OS X, Linux and Windows](http://hood.ie/#installation).
