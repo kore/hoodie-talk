@@ -70,6 +70,7 @@
             var recipeId = $(e.currentTarget).data("recipe");
             hoodie.store.find("recipe", recipeId).done(function(recipe) {
                 $('#toolbar').trigger("displayPage", {page: "recipe"});
+                recipe.formattedInstructions = marked(recipe.instructions);
                 Recipe.template.showTemplate(
                     ".recipe",
                     "templates/recipe.tpl",
@@ -87,6 +88,7 @@
             var recipeId = $(e.currentTarget).data("recipe");
             hoodie.global.find("recipe", recipeId).done(function(recipe) {
                 $('#toolbar').trigger("displayPage", {page: "recipe"});
+                recipe.formattedInstructions = marked(recipe.instructions);
                 Recipe.template.showTemplate(
                     ".recipe",
                     "templates/recipe.tpl",

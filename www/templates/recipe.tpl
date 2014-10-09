@@ -6,4 +6,4 @@
 {{/ingredients}}
 </ul>
 
-<p>{{instructions}}</p>
+{{{formattedInstructions}}}
