@@ -11,7 +11,9 @@
             e.preventDefault();
 
             var recipe = Recipe.form.getRecipe(e.target);
-            hoodie.store.add("recipe", recipe);
+            hoodie.store.add("recipe", recipe).done(function(recipe) {
+                $('#toolbar').trigger("displayPage", {page: "list"});
+            });
 
             return false;
         };
