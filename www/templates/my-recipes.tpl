@@ -1,6 +1,8 @@
 {{#recipes}}
 <li>
-    <strong>{{title}}</strong>
+    <strong>
+        <a class="mine" href="" data-recipe="{{id}}" title="{{title}}">{{title}}</a>
+    </strong>
     {{#$public}}
         <a class="unshare" href="" data-recipe="{{id}}" title="Unpublish recipe {{title}}">
             <span class="text-success glyphicon glyphicon-check"></span>
