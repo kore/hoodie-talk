@@ -5,62 +5,12 @@
  */
 ;(function($) {
     $.fn.recipe = function(hoodie) {
-        var ingredientRow = $(".ingredients").clone(),
-            hoodie = hoodie;
-
-        var addIngredient = function(e, data) {
-            e.preventDefault();
-
-            var newRow = $(ingredientRow).clone();
-            $("button.ingredient").before(newRow);
-
-            return false;
-        };
-
-        var getRecipeFromForm = function(form) {
-            var formValues = $(form).serializeArray(),
-                ingredient = {},
-                recipe = {
-                    "title": "",
-                    "ingredients": [],
-                    "instructions": "",
-                    "author": hoodie.account.username
-                };
-
-            
-            for (var i = 0; i < formValues.length; ++i) {
-                switch (formValues[i]["name"]) {
-                    case "title":
-                        recipe.title = formValues[i]["value"] || "";
-                        break;
-                    case "instructions":
-                        recipe.instructions = formValues[i]["value"] || "";
-                        break;
-
-                    case "amount":
-                        ingredient = {
-                            "amount": formValues[i]["value"],
-                            "unit": "g",
-                            "name": ""
-                        };
-                        recipe.ingredients.push(ingredient);
-                        break;
-                    case "unit":
-                        ingredient["unit"] = formValues[i]["value"];
-                        break;
-                    case "name":
-                        ingredient["name"] = formValues[i]["value"];
-                        break;
-                }
-            }
-
-            return recipe;
-        };
+        var hoodie = hoodie;
 
         var addRecipe = function(e, data) {
             e.preventDefault();
 
-            var recipe = getRecipeFromForm(e.target);
+            var recipe = Recipe.form.getRecipe(e.target);
             hoodie.store.add("recipe", recipe);
 
             return false;
@@ -89,6 +39,7 @@
                 function () {
                     $(target).find("a").unbind("click");
 
+                    // $(target).find("a.mine").bind("click", showRecipe);
                     $(target).find("a.share").bind("click", shareRecipe);
                     $(target).find("a.unshare").bind("click", unshareRecipe);
                 }
@@ -117,7 +68,7 @@
 
         return this.each(function() {
             $(this).find(".create button.ingredient").unbind("click");
-            $(this).find(".create button.ingredient").bind("click", addIngredient);
+            $(this).find(".create button.ingredient").bind("click", Recipe.form.addRow);
 
             $(this).find(".create form").unbind("submit");
             $(this).find(".create form").bind("submit", addRecipe);
