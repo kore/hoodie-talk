@@ -112,6 +112,8 @@
             hoodie.store.on('add:recipe', updateRecipeList);
             hoodie.global.on('add:recipe', updateRecipeList);
             hoodie.global.on('change:recipe', updateRecipeList);
+
+            hoodie.account.on('signup changeusername signin reauthenticated signout', updateRecipeList);
         });
     };
 }(jQuery));
