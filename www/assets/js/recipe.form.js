@@ -14,6 +14,7 @@
         var formValues = $(form).serializeArray(),
             ingredient = {},
             recipe = {
+                "id": null,
                 "title": "",
                 "ingredients": [],
                 "instructions": "",
@@ -23,6 +24,9 @@
         
         for (var i = 0; i < formValues.length; ++i) {
             switch (formValues[i]["name"]) {
+                case "id":
+                    recipe.id = formValues[i]["value"] || null;
+                    break;
                 case "title":
                     recipe.title = formValues[i]["value"] || "";
                     break;

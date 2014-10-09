@@ -18,6 +18,17 @@
             return false;
         };
 
+        var updateRecipe = function(e, data) {
+            e.preventDefault();
+
+            var recipe = Recipe.form.getRecipe(e.target);
+            hoodie.store.update("recipe", recipe.id, recipe).done(function(recipe) {
+                $('#toolbar').trigger("displayPage", {page: "list"});
+            });
+
+            return false;
+        };
+
         var updateRecipeList = function() {
             hoodie.store.findAll("recipe").done(function (recipes) {
                 renderList(".my-recipes", "my-recipes.tpl", recipes);
@@ -103,7 +114,21 @@
             e.preventDefault();
 
             var recipeId = $(e.currentTarget).data("recipe");
-            // @TODO: Do something
+            hoodie.store.find("recipe", recipeId).done(function (recipe) {
+                $('#toolbar').trigger("displayPage", {page: "editRecipe"});
+                Recipe.template.showTemplate(
+                    ".editRecipe",
+                    "templates/edit.tpl",
+                    recipe,
+                    function () {
+                        $(".editRecipe button.ingredient").unbind("click");
+                        $(".editRecipe button.ingredient").bind("click", Recipe.form.addRow);
+
+                        $(".editRecipe form").unbind("submit");
+                        $(".editRecipe form").bind("submit", updateRecipe);
+                    }
+                );
+            });
 
             updateRecipeList();
             return false;
@@ -138,6 +163,7 @@
 
             updateRecipeList();
             hoodie.store.on('add:recipe', updateRecipeList);
+            hoodie.store.on('change:recipe', updateRecipeList);
             hoodie.global.on('add:recipe', updateRecipeList);
             hoodie.global.on('change:recipe', updateRecipeList);
 
