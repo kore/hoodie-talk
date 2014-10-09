@@ -23,7 +23,8 @@
                 recipe = {
                     "title": "",
                     "ingredients": [],
-                    "instructions": ""
+                    "instructions": "",
+                    "author": hoodie.account.username
                 };
 
             
@@ -67,15 +68,15 @@
 
         var updateRecipeList = function() {
             hoodie.store.findAll("recipe").done(function (recipes) {
-                renderList(".my-recipes", recipes);
+                renderList(".my-recipes", "my-recipes.tpl", recipes);
             });
 
             hoodie.global.findAll("recipe").done(function (recipes) {
-                renderList(".global-recipes", recipes);
+                renderList(".global-recipes", "global-recipes.tpl", recipes);
             });
         };
 
-        var renderList = function(target, recipes) {
+        var renderList = function(target, template, recipes) {
             $(target).empty();
             recipes.sort(function(a, b) {
                 return ((a.title == b.title) ? 0 : ((a.title > b.title) ? 1 : -1));
@@ -83,7 +84,7 @@
 
             Recipe.template.showTemplate(
                 target,
-                "templates/my-recipes.tpl",
+                "templates/" + template,
                 {"recipes": recipes},
                 function () {
                     $(target).find("a").unbind("click");

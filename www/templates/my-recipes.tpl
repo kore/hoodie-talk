@@ -1,6 +1,6 @@
 {{#recipes}}
 <li>
-    {{title}}
+    <strong>{{title}}</strong>
     {{#$public}}
         <a class="unshare" href="" data-recipe="{{id}}" title="Unpublish recipe {{title}}">
             <span class="text-success glyphicon glyphicon-check"></span>
