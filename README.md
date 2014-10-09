@@ -26,5 +26,5 @@ Start app locally:
 * [x] Implement unpublishing of recipes
 * [ ] Implement more beautiful styling of app
 * [ ] Implement cookbook generation
-* [ ] Implement ingredients view
+* [x] Implement ingredients view
 

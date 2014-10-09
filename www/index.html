@@ -16,6 +16,7 @@
         <div class="container-fluid">
           <ul id="toolbar" class="nav navbar-nav">
             <li><a href="list">Recipe list</a></li>
+            <li><a href="listIngredients">Ingredients</a></li>
             <li><a href="create">Create recipe</a></li>
           </ul>
 
@@ -126,6 +127,9 @@
               <button type="submit" class="btn btn-default">Store</button>
             </form>
         </div>
+        
+        <div class="ingredientList" style="display: none;">
+        </div>
 
         <div class="recipe" style="display: none;">
         </div>
@@ -149,9 +153,11 @@
     <script src="assets/vendor/bootstrap.modalform.js"></script>
     <script src="assets/vendor/mustache/mustache.js"></script>
     <script src="assets/vendor/marked/marked.min.js"></script>
+    <script src="assets/vendor/underscore/underscore-min.js"></script>
 
     <script src="assets/js/template.js"></script>
     <script src="assets/js/recipe.form.js"></script>
+    <script src="assets/js/recipe.view.js"></script>
 
     <script src="assets/js/toolbar.js"></script>
     <script src="assets/js/recipe.js"></script>
