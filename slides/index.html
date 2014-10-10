@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+        <title>Hoodie - very fast web app development</title>
+
+        <meta name="description" content="Hoodie is a noBackend architecture for frontend-only web apps.">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="node_modules/reveal.js/css/reveal.min.css">
+		<link rel="stylesheet" href="node_modules/reveal.js/css/theme/default.css" id="theme">
+		<link rel="stylesheet" href="custom.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="node_modules/reveal.js/lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="node_modules/reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+<section>
+    <h1>Hood.ie</h1>
+    <p>JavaScript Days 2014</p>
+    <p>
+        Hans-Christian Otto (<a href="http://twitter.com/muhdiekuh">@muhdiekuh</a>) &amp;<br />
+        Kore Nordmann (<a href="http://twitter.com/koredn">@koredn</a>)
+    </p>
+
+    <pre style="margin-top: 70px;">
+        Installation Guide: Install Git, NodeJS, CouchDB
+        npm install -g hoodie-cli
+        hoodie new jsdays && cd jsdays && hoodie start
+    </pre>
+
+    <img src="images/javascript-days-logo.png" style="border: 0px; background: none; box-shadow: 0 0 0px; padding-top: 2em;">
+</section>
+
+<section>
+    <img height="640px" src="images/hanschristianotto.jpg" />
+</section>
+
+<section>
+    <img height="640px" src="images/korenordmann.jpg" />
+</section>
+
+<section data-background="white">
+    <img  src="images/hoodie_logo.png" />
+</section>
+
+<section data-markdown>
+# Offline is an error condition
+</section>
+
+<section data-background="white">
+    <object wdith="200%" data="images/offline_01.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_02.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_03.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_04.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_05.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_06.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_07.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_08.svg" type="image/svg+xml"></object>
+</section>
+<section data-background="white">
+    <object wdith="200%" data="images/offline_09.svg" type="image/svg+xml"></object>
+</section>
+
+<section data-markdown>
+# Offline is *NO* error condition
+
+## It might be politically, but not technically
+</section>
+
+<section data-markdown>
+# Demo: Recipe Manager
+
+* Offline first
+* Multi device synchronization
+* Document sharing
+</section>
+
+<section data-markdown>
+# The Idea: No Backend
+
+(almost)
+</section>
+
+<section data-markdown>
+## Just use JavaScript
+
+### (plus HTML &amp; CSS)
+</section>
+
+<section data-markdown>
+## Work on all the devices
+</section>
+
+<section data-markdown>
+## Contents synchronized between all devices
+
+(This, obviously, requires a server)
+</section>
+
+<section data-markdown>
+## Services (E-Mail, Payment, Sharing, …) just work …
+
+(…, but, obviously, require a server)
+</section>
+
+<section data-markdown>
+## Major Concern: Simple APIs (dreamcode)
+</section>
+
+<section>
+<h2>Dreamcode</h2>
+<pre>
+    <code data-trim contenteditable>
+var app = new Application();
+
+app.account.signUp(username, password);
+
+app.store.add("blogpost", {
+    title: 'foo',
+    content: 'bar'
+});
+    </code>
+</pre>
+</section>
+
+<section data-markdown>
+# Hack
+
+## How does that work?
+
+1. Storage
+2. Sharing
+3. Views
+</section>
+
+<section data-markdown>
+# Architecture
+
+## How does that work?
+</section>
+
+<section>
+    <h2>How Does It Work?</h2>
+    <object data="images/implementation_01.svg" type="image/svg+xml"></object>
+</section>
+<section>
+    <h2>How Does It Work?</h2>
+    <object data="images/implementation_02.svg" type="image/svg+xml"></object>
+</section>
+<section>
+    <h2>How Does It Work?</h2>
+    <object data="images/implementation_03.svg" type="image/svg+xml"></object>
+</section>
+<section>
+    <h2>How Does It Work?</h2>
+    <object data="images/implementation_04.svg" type="image/svg+xml"></object>
+</section>
+<section>
+    <h2>How Does It Work?</h2>
+    <object data="images/implementation_05.svg" type="image/svg+xml"></object>
+</section>
+<section>
+    <h2>How Does It Work?</h2>
+    <object data="images/implementation_06.svg" type="image/svg+xml"></object>
+</section>
+
+<section data-markdown>
+# Issues
+
+* It's Alpha
+* Limited Local Storage
+* Conflict Resolution
+* Eventual Consistency
+</section>
+
+<section data-markdown>
+## What works
+
+* Client side JavaScript works
+* Server works
+* Installation is trivial
+* Server-Side module API
+</section>
+
+<section data-markdown>
+## What does not work (yet)
+
+* No partial replication support (yet)
+* No native support for client side "views"
+</section>
+
+<section data-markdown>
+# CouchDB
+</section>
+
+<section data-markdown>
+## Document Database
+
+* Random JSON structures (documents)
+* Indexes on all properties in those documents work
+* File attachments possible
+</section>
+
+<section data-markdown>
+## HTTP
+
+* Seems broken for a database, but:
+  * Support in all languages exist
+  * Command line debugging
+  * Re-use all your HTTP tools (load balancer, proxies, …)
+</section>
+
+<section data-markdown>
+## RESTful
+
+* Using common HTTP verbs to access data
+* GET/POST/PUT/DELETE http://localhost:5984/database/document/attachment
+</section>
+
+<section data-markdown>
+## Authentification / Authorization
+
+* Supports HTTP auth
+  * Just use http://user:password@localhost:5984/
+  * Also supports Cookie / OAuth, but …
+* Granular permissions on server / database / document level possible
+</section>
+
+<section data-markdown>
+## Changes Feed
+
+* Lists all changes to a database:
+  * http://localhost:5984/database/_changes
+  * http://localhost:5984/database/_changes?feed=longpoll&amp;since=1
+</section>
+
+<section data-markdown>
+## Extending the backend
+
+* A task based plugin API is availbale
+* Directly accessing CouchDB is possible
+  * And it is not even a bad practice
+</section>
+
+<section data-markdown>
+# Plugins
+</section>
+
+<section data-markdown>
+## Hood.ie Plugin Architecture
+
+* Frontend creates a "Task"
+* Tasks gets synced to CouchDB
+* Node.JS worker listens for new tasks
+</section>
+
+<section>
+    <h2>Hood.ie Plugin Registration</h2>
+    <ul>
+        <li>Conatined under <code>node_modules/hoodie-plugin-&lt;name&gt;</code></li>
+        <li>Register in global <code>package.json</code> under <code>hoodie.plugins</code></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Structure</h2>
+    <pre>
+        <code data-trim contenteditable>
+hoodie-plugin-&lt;name&gt;
+    hoodie.&lt;name&gt;.js
+    worker.js
+    /pocket
+        index.html
+        styles.css
+        main.js
+    package.json
+        </code>
+    </pre>
+</section>
+
+<section>
+    <h2>Create new Task</h2>
+    <pre>
+        <code data-trim contenteditable>
+hoodie.task.start(
+    'message',
+    {
+        to: 'joe',
+        text: 'Party machen?'
+    }
+);
+
+// […]
+
+hoodie.task.on(
+    'message:success',
+    function (completedMessageTask, options) {}
+);
+        </code>
+    </pre>
+</section>
+
+<section>
+    <h2>Mail Worker</h2>
+    <pre>
+        <code data-trim contenteditable>
+module.exports = function (hoodie, doneCallback) {
+
+    hoodie.task.on('message:add', handleNewMessage)
+
+    function handleNewMessage(dbName, message) {
+        // Do something with the message…
+
+        if (error) {
+            return hoodie.task.error(dbName, message, error);
+        }
+
+        hoodie.task.success(dbName, message);
+    }
+
+    doneCallback();
+};
+        </code>
+    </pre>
+
+</section>
+
+<section data-markdown>
+## Extending the backend
+
+* CouchDB _changes feed for platform independent extensions
+* Plugins/Workers for Node.JS extensions
+</section>
+
+<section data-markdown>
+# Hack
+
+## How does that work?
+
+1. Backend connection
+</section>
+
+<section data-markdown>
+# Offline first
+
+## Offline is no problem
+</section>
+
+<section data-markdown>
+# Enabling frontend developers
+
+## Work without touching a backend
+</section>
+
+<section data-markdown>
+# Lower barrier
+
+## New people are enabled to work with web technologies
+</section>
+
+<section>
+    <h1>Questions? Comments!</h1>
+</section>
+
+<section>
+    <h1>Rate the sessions!</h1>
+    <p>And add comments, especially for critics</p>
+</section>
+
+<section>
+    <h1>Thanks!</h1>
+    <p>
+        Hans-Christian Otto (<a href="http://twitter.com/muhdiekuh">@muhdiekuh</a>) &amp;<br />
+        Kore Nordmann (<a href="http://twitter.com/koredn">@koredn</a>)
+    </p>
+    <p><a href="https://github.com/QafooTraining/Recipes">https://github.com/QafooTraining/Recipes</a></p>
+</section>
+			</div>
+
+		</div>
+
+		<script src="node_modules/reveal.js/lib/js/head.min.js"></script>
+		<script src="node_modules/reveal.js/js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: false,
+				progress: false,
+				history: true,
+				center: true,
+
+				theme: 'default',
+				transition: 'none',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'node_modules/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'node_modules/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'node_modules/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'node_modules/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'node_modules/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'node_modules/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
