@@ -8,9 +8,11 @@
     <meta name="viewport" content="width=device-width" />
 
     <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap/business-casual.css" />
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body>
+    <div class="brand">Hood Recipes</div>
     <div class="container">
       <nav class="hoodie-accountbar navbar navbar-default" role="navigation">
         <div class="container-fluid">
@@ -18,9 +20,6 @@
             <li><a href="list">Recipe list</a></li>
             <li><a href="listIngredients">Ingredients</a></li>
             <li><a href="create">Create recipe</a></li>
-          </ul>
-
-          <ul class="nav navbar-form navbar-right">
             <li class="hoodie-account-signedout">
               <span class="btn-group">
                 <button class="btn btn-small" data-hoodie-action="signup">Sign Up</button>
@@ -36,8 +35,7 @@
             </li><!-- /.hoodie-account-signedout -->
 
             <li class="hoodie-account-signedin">
-              Hello,
-              <span class="hoodie-username"><!-- usern name will be filled in here --></span>
+              <span class="hoodie-username"><!-- usern name will be filled in here --></span>:
               <span class="btn-group">
                 <button class="btn btn-small" data-hoodie-action="signout">Sign Out</button>
                 <button class="btn btn-small dropdown-toggle" data-toggle="dropdown">
@@ -52,8 +50,7 @@
             </li><!-- /.hoodie-account-signedin -->
 
             <li class="hoodie-account-error">
-              Hello,
-              <span class="hoodie-username"><!-- username will be filled in here --></span>.
+              <span class="hoodie-username"><!-- username will be filled in here --></span>:
               <span class="btn-group">
                 <button class="btn btn-small btn-danger" data-hoodie-action="signin">Authentication error: Sign in again</button>
                 <button class="btn btn-small dropdown-toggle btn-danger" data-toggle="dropdown">
@@ -68,9 +65,7 @@
         </div><!-- /.container-fluid -->
       </nav>
 
-      <div class="content">
-        <h1>Hood Recipes</h1>
-        
+      <div class="content box">
         <div class="start">
             <h2>Welcome</h2>
             <p>This is a demo offline-first recipe manager with sharing functionality using <a href="http://hood.ie/">Hoodie</a>.</p>
@@ -137,11 +132,17 @@
         <div class="editRecipe" style="display: none;">
         </div>
       </div>
-
-      <footer class="copy">
-        <p>&hearts; hood.ie 2014</p>
-      </footer>
     </div> <!-- /.container -->
+
+    <footer class="copy">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <p>&hearts; hood.ie 2014</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
     <script src="assets/vendor/jquery-2.1.0.min.js"></script>
     <script src="assets/vendor/bootstrap/bootstrap.js"></script>

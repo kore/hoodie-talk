@@ -1,21 +1,14 @@
-body {
-    background-image: url("../img/background.jpg");
+html, body {
+    height: 100%;
 }
-
-.container {
-  position: relative;
-  background: #fff;
-  margin-top: -10px;
-  padding: 0;
-  box-shadow: 0 0 10px rgba(0,0,0,.5);
-}
-
 
 /* hide contents until we know if user is signed in or not */
 body .hoodie-account-signedin,
 body .hoodie-account-signedout,
 body .hoodie-account-error {
   display: none;
+  padding: 35px 35px 25px 35px;
+  line-height: normal;
 }
 
 html[data-hoodie-account-status=signedin]  .hoodie-account-signedin,
@@ -24,16 +17,15 @@ html[data-hoodie-account-status=signedout] .hoodie-account-signedout {
   display: block;
 }
 
-.content {
-    padding: .5em;
+body > .container {
+    margin-bottom: 138px;
 }
 
 footer {
-    background-color: #eeeeec;
-    margin: 1em 0em 0em 0em;
-    padding: .5em;
-}
-
-footer p {
-    margin: 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+  z-index:150;
+  _position: absolute;
+  _top: expression(eval(document.documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)));
 }
