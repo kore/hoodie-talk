@@ -1,0 +1,11 @@
+{
+  "name": "pdf_exporter",
+  "version": "0.0.0",
+  "description": "",
+  "main": "exporter.js",
+  "dependencies": {
+    "follow": "^0.11.3",
+    "markdown-pdf": "^3.0.2",
+    "request": "^2.45.0"
+  }
+}
