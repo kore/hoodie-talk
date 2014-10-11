@@ -7,8 +7,16 @@ body .hoodie-account-signedin,
 body .hoodie-account-signedout,
 body .hoodie-account-error {
   display: none;
-  padding: 35px 35px 25px 35px;
-  line-height: normal;
+  padding: 5px 15px;
+}
+
+@media screen and (min-width:768px) {
+  body .hoodie-account-signedin,
+  body .hoodie-account-signedout,
+  body .hoodie-account-error {
+    padding: 35px 35px 25px 35px;
+    line-height: normal;
+  }
 }
 
 html[data-hoodie-account-status=signedin]  .hoodie-account-signedin,
@@ -18,7 +26,7 @@ html[data-hoodie-account-status=signedout] .hoodie-account-signedout {
 }
 
 body > .container {
-    margin-bottom: 138px;
+    margin-bottom: 50px;
 }
 
 footer {
