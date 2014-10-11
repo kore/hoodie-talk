@@ -24,7 +24,7 @@ Start app locally:
 * [x] Delete recipes
 * [x] Show author in shared recipes
 * [x] Implement unpublishing of recipes
-* [ ] Implement more beautiful styling of app
+* [x] Implement more beautiful styling of app
 * [ ] Implement cookbook generation
 * [x] Implement ingredients view
 
