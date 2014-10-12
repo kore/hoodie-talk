@@ -26,7 +26,8 @@
             ingredients,
             function (key, values, rereduce) {
                 return values;
-            }
+            },
+            true
         );
     };
 
@@ -59,7 +60,7 @@
      * @param function reduceFunction
      * @param bool group
      */
-    view.reduce = function(mapResult, reduceFunction, group = true) {
+    view.reduce = function(mapResult, reduceFunction, group) {
         if (!group) {
             return [{
                 "key": null,
