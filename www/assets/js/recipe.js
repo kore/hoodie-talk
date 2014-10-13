@@ -78,7 +78,6 @@
                 );
             });
 
-            updateRecipeList();
             return false;
         }
 
@@ -96,7 +95,6 @@
                 );
             });
 
-            updateRecipeList();
             return false;
         }
 
