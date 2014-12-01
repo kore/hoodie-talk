@@ -256,7 +256,7 @@
 <section data-markdown>
 ## Extending the backend
 
-* A task based plugin API is available
+* Plugins/Workers for Node.JS extensions
 * Directly accessing CouchDB is possible
   * And it is not even a bad practice
 </section>
@@ -271,30 +271,6 @@
 * Frontend creates a "Task"
 * Tasks gets synced to CouchDB
 * Node.JS worker listens for new tasks
-</section>
-
-<section>
-    <h2>Hoodie Plugin Registration</h2>
-    <ul>
-        <li>Contained under <code>node_modules/hoodie-plugin-&lt;name&gt;</code></li>
-        <li>Register in global <code>package.json</code> under <code>hoodie.plugins</code></li>
-    </ul>
-</section>
-
-<section>
-    <h2>Structure</h2>
-    <pre>
-        <code data-trim contenteditable>
-hoodie-plugin-&lt;name&gt;
-    hoodie.&lt;name&gt;.js
-    worker.js
-    /pocket
-        index.html
-        styles.css
-        main.js
-    package.json
-        </code>
-    </pre>
 </section>
 
 <section>
@@ -342,13 +318,6 @@ module.exports = function (hoodie, doneCallback) {
         </code>
     </pre>
 
-</section>
-
-<section data-markdown>
-## Extending the backend
-
-* CouchDB _changes feed for platform independent extensions
-* Plugins/Workers for Node.JS extensions
 </section>
 
 <section data-markdown>
